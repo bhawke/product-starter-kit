@@ -34,21 +34,16 @@ $ gulp serve
 
 This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
-### Run tests
-
-```sh
-$ gulp test:local
-```
-
-This runs the unit tests defined in the `app/test` directory through [web-component-tester](https://github.com/Polymer/web-component-tester).
-
-### Build & Vulcanize
+### Build For Production
 
 ```sh
 $ gulp
 ```
 
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
+
+### Deploy to github pages
+TODO: implement gulp function and document here
 
 ## Application Theming
 
