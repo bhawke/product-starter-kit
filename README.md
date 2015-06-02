@@ -43,7 +43,11 @@ $ gulp
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
 
 ### Deploy to github pages
-TODO: implement gulp function and document here
+```sh
+$ gulp deploy
+```
+
+Deploy the site to github pages.  This assumes you have created a new repository in github and checked in all files.
 
 ## Application Theming
 
@@ -51,7 +55,6 @@ Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Pal
 
 ## TODO
 * Create proper landing page
-* Add gulp task to deploy to github pages & deploy this starter kit to it
 * Add documentation to point a custom domain to the project page
 * Include google analytics
 * Include feedback capabilities (firebase to store date???)

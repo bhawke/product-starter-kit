@@ -21,6 +21,9 @@ var path = require('path');
 var fs = require('fs');
 var glob = require('glob');
 
+// rbeers mod , needed for github pages deploy
+var ghPages = require('gulp-gh-pages');
+
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -229,3 +232,10 @@ try { require('web-component-tester').gulp.init(gulp); } catch (err) {}
 
 // Load custom tasks from the `tasks` directory
 try { require('require-dir')('tasks'); } catch (err) {}
+
+// Deploy production to github pages (rbeers mod)
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
+
