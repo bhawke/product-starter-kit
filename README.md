@@ -56,7 +56,7 @@ Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Pal
 ## Custom Domain URL
 1. Register domain name through GoDaddy.  Send email to GoDaddy administrator with domain you want to register. [GoDaddy Instructions](http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html)
 2. Edit app/CNAME and replace with the new registered domain name 
-3. Deploy to github pages ```sh $gulp deploy ``` 
+3. Deploy to github pages ```$ gulp deploy ``` 
 
 ## TODO
 * Create proper landing page
