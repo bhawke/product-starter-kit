@@ -53,12 +53,17 @@ Deploy the site to github pages.  This assumes you have created a new repository
 
 Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Palette](http://www.materialpalette.com/) for different theme combinations.
 
+## Custom Domain URL
+1. Register domain name through GoDaddy.  Send email to GoDaddy administrator with domain you want to register. [GoDaddy Instructions](http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html)
+2. Edit app/CNAME and replace with the new registered domain name 
+3. Deploy to github pages ```sh $gulp deploy ``` 
+
 ## TODO
 * Create proper landing page
 * Add documentation to point a custom domain to the project page
 * Include google analytics
 * Include feedback capabilities (firebase to store date???)
-* Add documentation for custom domains - http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html
+
 
 ## Credit
 This starter kit was derived from [Polymer Starter Kit] (https://developers.google.com/web/tools/polymer-starter-kit/)
