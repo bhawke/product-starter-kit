@@ -58,12 +58,6 @@ Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Pal
 2. Edit app/CNAME and replace with the new registered domain name 
 3. Deploy to github pages ```$ gulp deploy ``` 
 
-## TODO
-* Create proper landing page
-* Add documentation to point a custom domain to the project page
-* Include google analytics
-* Include feedback capabilities (firebase to store date???)
-
 
 ## Credit
-This starter kit was derived from [Polymer Starter Kit] (https://developers.google.com/web/tools/polymer-starter-kit/)
+This starter kit was derived from [Polymer Starter Kit] (https://developers.google.com/web/tools/polymer-starter-kit/).  Keep this project in sync with it as it contains best practices for cross browser + cross platform.
