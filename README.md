@@ -58,6 +58,7 @@ Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Pal
 * Add documentation to point a custom domain to the project page
 * Include google analytics
 * Include feedback capabilities (firebase to store date???)
+* Add documentation for custom domains - http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html
 
 ## Credit
 This starter kit was derived from [Polymer Starter Kit] (https://developers.google.com/web/tools/polymer-starter-kit/)
