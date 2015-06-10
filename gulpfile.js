@@ -249,7 +249,7 @@ try { require('web-component-tester').gulp.init(gulp); } catch (err) {}
 try { require('require-dir')('tasks'); } catch (err) {}
 
 // Deploy production to github pages (rbeers mod)
-gulp.task('deploy', function() {
+gulp.task('deploy', ['default'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
