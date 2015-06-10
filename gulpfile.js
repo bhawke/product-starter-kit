@@ -87,8 +87,7 @@ gulp.task('copy', function () {
   var app = gulp.src([
     'app/*',
     '!app/test',
-    '!app/precache.json',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    '!app/precache.json'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
@@ -171,7 +170,7 @@ gulp.task('precache', function (callback) {
     if (error) {
       callback(error);
     } else {
-      files.push('index.html', './', 'bower_components/webcomponentsjs/webcomponents.min.js');
+      files.push('index.html', './', 'bower_components/webcomponentsjs/webcomponents-lite.min.js');
       var filePath = path.join(dir, 'precache.json');
       fs.writeFile(filePath, JSON.stringify(files), callback);
     }
@@ -185,6 +184,14 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('serve', ['styles', 'elements', 'images'], function () {
   browserSync({
     notify: false,
+    snippetOptions: {
+      rule: {
+        match: '<span id="browser-sync-binding"></span>',
+        fn: function (snippet) {
+          return snippet;
+        }
+      }
+    },
     // Run as an https by uncommenting 'https: true'
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
@@ -208,6 +215,14 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
 gulp.task('serve:dist', ['default'], function () {
   browserSync({
     notify: false,
+    snippetOptions: {
+      rule: {
+        match: '<span id="browser-sync-binding"></span>',
+        fn: function (snippet) {
+          return snippet;
+        }
+      }
+    },
     // Run as an https by uncommenting 'https: true'
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
@@ -238,4 +253,3 @@ gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
-

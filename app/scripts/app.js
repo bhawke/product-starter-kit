@@ -7,7 +7,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-(function (document) {
+(function(document) {
   'use strict';
 
   // Grab a reference to our auto-binding template
@@ -27,11 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
-    document.querySelector('body').removeAttribute('unresolved');
-
-    // Ensure the drawer is hidden on desktop/tablet
-    var drawerPanel = document.querySelector('#paperDrawerPanel');
-    drawerPanel.forceNarrow = true;
+    // imports are loaded and elements have been registered
   });
 
   // Close drawer after menu item is selected if drawerPanel is narrow
@@ -43,9 +39,3 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
 })(document);
-
-// TODO: Decide if we still want to suggest wrapping as it requires
-// using webcomponents.min.js.
-// wrap document so it plays nice with other libraries
-// http://www.polymer-project.org/platform/shadow-dom.html#wrappers
-// )(wrap(document));
