@@ -58,6 +58,8 @@ Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Pal
 2. Edit app/CNAME and replace with the new registered domain name 
 3. Deploy to github pages ```$ gulp deploy ``` 
 
+## Trademarks
+[Howto] (docs/trademarks.md)
 
 ## Credit
 This starter kit was derived from [Polymer Starter Kit] (https://developers.google.com/web/tools/polymer-starter-kit/).  Keep this project in sync with it as it contains best practices for cross browser + cross platform.
