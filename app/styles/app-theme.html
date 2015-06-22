@@ -1,112 +1,106 @@
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <style is="custom-style">
 
-  /*
-   Polymer includes a shim for CSS Custom Properties that we can use for application theming.
-   Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to play
-   with changing the colors used or generate your own palette of colours at MaterialPalette.com.
-
-   See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-details
-   for further information on custom CSS properties.
-   */
-
-  /* Application theme */
-
   :root {
-    --dark-primary-color: #303F9F;
-    --default-primary-color: #3F51B5;
-    --light-primary-color: #C5CAE9;
-    --text-primary-color: #ffffff; /*text/icons*/
-    --accent-color: #FF4081;
-    --primary-background-color: #c5cae9;
-    --primary-text-color: #212121;
-    --secondary-text-color: #727272;
-    --disabled-text-color: #bdbdbd;
-    --divider-color: #B6B6B6;
+   --dark-primary-color:       #5D4037;
+   --default-primary-color:    #795548;
+   --light-primary-color:      #D7CCC8;
+   --text-primary-color:       #FFFFFF;
+   --accent-color:             #4CAF50;
+   --primary-background-color: #D7CCC8;
+   --primary-text-color:       #212121;
+   --secondary-text-color:     #727272;
+   --disabled-text-color:      #BDBDBD;
+   --divider-color:            #B6B6B6;
 
-    /* Components */
 
-    /* paper-drawer-panel */
-    --drawer-menu-color: #ffffff;
-    --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+   /* Components */
 
-    /* paper-menu */
-    --paper-menu-background-color: #fff;
-    --menu-link-color: #111111;
+   /* paper-drawer-panel */
+   --drawer-menu-color:           #ffffff;
+   --drawer-border-color:         1px solid #ccc;
+   --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+
+   /* paper-menu */
+   --paper-menu-background-color: #fff;
+   --menu-link-color:             #111111;
+
+   /* paper-input */
+  --paper-input-container-color:       rgba(255, 255, 255, 0.64);
+  --paper-input-container-focus-color: rgba(255, 255, 255, 1);
+  --paper-input-container-input-color: #fff;
+  }
+
+
+  paper-scroll-header-panel {
+    @apply(--layout-flex);
+    background-color: var(--paper-grey-50);
+
+    /* background for toolbar when it is at its full size */
+    --paper-scroll-header-panel-full-header: {
+      background-image: url(../../images/template-1/treeingdog1.jpg);
+    };
+
+    /* background for toolbar when it is condensed */
+    --paper-scroll-header-panel-condensed-header: {
+      background-color: var(--landing-page-condensed-header-color, --default-primary-color);
+    };
   }
 
   /* General styles */
 
-  #drawerToolbar {
-    color: var(--secondary-text-color);
-    background-color: var(--drawer-menu-color);
-    border-bottom: var(--drawer-toolbar-border-color);
-    height: 64px;
+  h1 {
+    color: var(--accent-color);
+    font-weight: 300;
+    font-size: 45px;
   }
 
-  paper-material {
-    border-radius: 2px;
-    height: 100%;
-    padding: 16px 0 16px 0;
-    width: calc(98.66% - 16px);
-    margin: 16px auto;
-    background: white;
+  paper-toolbar {
+    /* custom toolbar height*/
+    height: 375px;
+    background-color: transparent;
   }
 
-  paper-menu iron-icon {
-    margin-right: 33px;
-    opacity: 0.54;
+  section .container {
+    width:1000px;
   }
 
-  .paper-menu > .iron-selected {
-    color: var(--default-primary-color);
+  .container div {
+    min-width:300px;
+    margin-right:8px;
+    margin-left:8px;
   }
 
-  paper-menu a {
-    text-decoration: none;
-    color: var(--menu-link-color);
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    font-family: 'Roboto', 'Noto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    min-height: 48px;
-    padding: 0 16px;
+  .spotlight {
+    min-height:300px;
+    background-color: var(--paper-grey-50);
   }
 
-  #mainToolbar .middle {
-    margin-left: 48px;
+  .features {
+    min-height:600px;
+    background-color: var(--paper-grey-100);
   }
 
-  #mainToolbar.has-shadow .middle {
-    font-size: 20px;
-    padding-bottom: 0;
-    margin-left: 48px;
+  .footer {
+    padding-top:60px;
+    height: 400px;
+    background-color: var(--primary-background-color);
   }
 
-  /* Height of the scroll area */
-  .content {
-    height: 900px;
+  .horizontal-section {
+    min-width: 130px;
+    margin-left:40px;
+    margin-right:40px;
+  }
+
+  paper-button {
+    display: block;
+    margin-bottom: 12px;
+    background: var(--paper-grey-50);
+  }
+
+  #graphic1 {
+    width:400px;
+    height:300px;
   }
 
   /* Breakpoints */
@@ -114,63 +108,56 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* Small */
   @media (max-width: 600px) {
 
-    paper-material {
-      --menu-container-display: none;
-      width: calc(97.33% - 32px);
-      padding-left: 16px;
-      padding-right: 16px;
+    h1 {
+      color: var(--accent-color);
+      font-weight: 300;
+      font-size: 24px;
     }
 
-    .paper-font-display1 {
-      font-size: 12px;
+    paper-toolbar {
+      /* custom toolbar height*/
+      height: 168px;
     }
 
-    .app-name {
-      font-size: 26px;
+    .content section {
+      padding-top:10px;
+      padding-bottom:10px;
     }
 
-    #drawer .paper-toolbar {
-      margin-left: 16px;
+    section .container {
+      max-width:350px;
     }
 
-    #overlay {
-      min-width: 360px;
+    .spotlight {
+      min-height:0px;
     }
 
-    .bg {
-      background: white;
+    .features {
+      min-height:0px;
     }
+
+    .footer {
+      padding-top:30px;
+      min-height:0px;
+    }
+
+
 
   }
 
   /* Tablet+ */
   @media (min-width: 601px) {
 
-    paper-material {
-      width: calc(98% - 46px);
-      margin-bottom: 32px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-
-    #drawer.paper-drawer-panel > [drawer] {
-      border-right: 1px solid rgba(0, 0, 0, 0.14);
-    }
-
-    iron-pages {
-      padding: 48px 62px;
-    }
-
   }
 
   /* Material Design Adaptive Breakpoints */
   /*
-    Below you'll find CSS media queries based on the breakpoint guidance
-    published by the Material Design team. You can choose to use, customise
-    or remove these breakpoints based on your needs.
+  Below you'll find CSS media queries based on the breakpoint guidance
+  published by the Material Design team. You can choose to use, customise
+  or remove these breakpoints based on your needs.
 
-    http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints
-   */
+  http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints
+  */
 
   /* mobile-small */
   @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }
