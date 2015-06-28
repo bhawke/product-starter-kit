@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Product Starter Kit" />
+  <title>Template - 2</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Product Starter Kit">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Product Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
+</head>
+
+<body unresolved>
+
+  <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
+
+  <paper-scroll-header-panel condenses keep-condensed-header condensed-header-height="64">
+
+    <paper-toolbar id="navbar" class="tall">
+      <paper-ripple initial-opacity=".5" recenters opacity-decay-velocity="1"></paper-ripple>
+      <div id="siteTitle">Google Design</div>
+      <div class="flex"></div>
+      <paper-tabs selected="" class="horizontal center layout" link noink >
+        <paper-tab class="inline flex center-center horizontal layout">
+          <a data-route="articles" href="/articles" class="horizontal center layout">Articles</a>
+        </paper-tab>
+        <paper-tab class="inline flex center-center horizontal layout">
+          <a data-route="resources" href="/resources" class="horizontal center layout">Resources</a>
+        </paper-tab>
+        <paper-tab class="inline flex center-center horizontal layout">
+          <a data-route="events" href="/events" class="horizontal center layout">Events</a>
+        </paper-tab>
+        <paper-tab class="inline flex center-center horizontal layout">
+          <a data-route="jobs" href="/jobs" class="horizontal center layout">Jobs</a>
+        </paper-tab>
+        <paper-tab class="inline flex center-center horizontal layout">
+          <a data-route="about" href="/about" class="horizontal center layout">About</a>
+        </paper-tab>
+      </paper-tabs>
+      <div id="pageTitle" class="bottom">Google Design</div>
+    </paper-toolbar>
+    <div class="content">
+      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" class="flex"
+        entry-animation="slide-from-right-animation" exit-animation="slide-left-animation">
+        <neon-animatable data-route="home" style="background-color:blue;">Home</neon-animatable>
+        <neon-animatable data-route="articles" style="background-color:red;">Articles</neon-animatable>
+        <neon-animatable data-route="resources" style="background-color:green;">Resources</neon-animatable>
+        <neon-animatable data-route="events" style="background-color:grey;">Events</neon-animatable>
+        <neon-animatable data-route="jobs" style="background-color:purple;">Jobs</neon-animatable>
+        <neon-animatable data-route="about" style="background-color:orange;">About</neon-animatable>
+      </neon-animated-pages>
+    </div>
+
+  </paper-scroll-header-panel>
+
+  </template>
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>

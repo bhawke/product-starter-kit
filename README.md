@@ -29,10 +29,11 @@ we will use to serve and build the kit.
 ### Serve / watch
 
 ```sh
-$ gulp serve
+$ gulp serve --template 1
 ```
 
-This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
+This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.  Passing in --template [num] will serve the app from the directory app-template-[num] .  If you prefer, you
+can modify the psk.appDir variable in package.json .
 
 ### Build For Production
 

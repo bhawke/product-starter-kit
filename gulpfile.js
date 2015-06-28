@@ -24,6 +24,24 @@ var glob = require('glob');
 // rbeers mod , needed for github pages deploy
 var ghPages = require('gulp-gh-pages');
 
+// rbeers mod, so we can change the app dir for templates
+var argv = require('yargs')
+            .usage('Usage: $0 <command> [options]')
+            .command('serve', 'serve up the application')
+            .alias('t', 'template')
+            .describe('t', 'template to use.  Example: passing -t 2 would serve app from app-template-2 directory')
+            .example('$0 serve --template 2', 'serve the app from app-template-2 directory')
+            .help('h')
+            .alias('h', 'help')
+            .argv;
+var PSK = require('./package.json').psk;
+var APPDIR = 'app';
+if (argv.template) {
+  APPDIR = 'app-template-' + argv.template;
+} else if (PSK.appDir) {
+  APPDIR = PSK.appDir;
+}
+
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -38,7 +56,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 var styleTask = function (stylesPath, srcs) {
   return gulp.src(srcs.map(function(src) {
-      return path.join('app', stylesPath, src);
+      return path.join(APPDIR, stylesPath, src);
     }))
     .pipe($.changed(stylesPath, {extension: '.css'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
@@ -60,9 +78,9 @@ gulp.task('elements', function () {
 // Lint JavaScript
 gulp.task('jshint', function () {
   return gulp.src([
-      'app/scripts/**/*.js',
-      'app/elements/**/*.js',
-      'app/elements/**/*.html'
+      APPDIR + '/scripts/**/*.js',
+      APPDIR + '/elements/**/*.js',
+      APPDIR + '/elements/**/*.html'
     ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint.extract()) // Extract JS from .html files
@@ -73,7 +91,7 @@ gulp.task('jshint', function () {
 
 // Optimize Images
 gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
+  return gulp.src(APPDIR + '/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
@@ -85,9 +103,9 @@ gulp.task('images', function () {
 // Copy All Files At The Root Level (app)
 gulp.task('copy', function () {
   var app = gulp.src([
-    'app/*',
-    '!app/test',
-    '!app/precache.json'
+    APPDIR + '/*',
+    '!' + APPDIR + '/test',
+    '!' + APPDIR + '/precache.json'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
@@ -96,7 +114,7 @@ gulp.task('copy', function () {
     'bower_components/**/*'
   ]).pipe(gulp.dest('dist/bower_components'));
 
-  var elements = gulp.src(['app/elements/**/*.html'])
+  var elements = gulp.src([APPDIR + '/elements/**/*.html'])
     .pipe(gulp.dest('dist/elements'));
 
   var swBootstrap = gulp.src(['bower_components/platinum-sw/bootstrap/*.js'])
@@ -105,7 +123,7 @@ gulp.task('copy', function () {
   var swToolbox = gulp.src(['bower_components/sw-toolbox/*.js'])
     .pipe(gulp.dest('dist/sw-toolbox'));
 
-  var vulcanized = gulp.src(['app/elements/elements.html'])
+  var vulcanized = gulp.src([APPDIR + '/elements/elements.html'])
     .pipe($.rename('elements.vulcanized.html'))
     .pipe(gulp.dest('dist/elements'));
 
@@ -115,16 +133,16 @@ gulp.task('copy', function () {
 
 // Copy Web Fonts To Dist
 gulp.task('fonts', function () {
-  return gulp.src(['app/fonts/**'])
+  return gulp.src([APPDIR + '/fonts/**'])
     .pipe(gulp.dest('dist/fonts'))
     .pipe($.size({title: 'fonts'}));
 });
 
 // Scan Your HTML For Assets & Optimize Them
 gulp.task('html', function () {
-  var assets = $.useref.assets({searchPath: ['.tmp', 'app', 'dist']});
+  var assets = $.useref.assets({searchPath: ['.tmp', APPDIR, 'dist']});
 
-  return gulp.src(['app/**/*.html', '!app/{elements,test}/**/*.html'])
+  return gulp.src([APPDIR + '/**/*.html', '!' + APPDIR + '/{elements,test}/**/*.html'])
     // Replace path for vulcanized assets
     .pipe($.if('*.html', $.replace('elements/elements.html', 'elements/elements.vulcanized.html')))
     .pipe(assets)
@@ -197,18 +215,18 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
     //       will present a certificate warning in the browser.
     // https: true,
     server: {
-      baseDir: ['.tmp', 'app'],
+      baseDir: ['.tmp', APPDIR],
       routes: {
         '/bower_components': 'bower_components'
       }
     }
   });
 
-  gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
-  gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-  gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint']);
-  gulp.watch(['app/images/**/*'], reload);
+  gulp.watch([APPDIR + '/**/*.html'], reload);
+  gulp.watch([APPDIR + '/styles/**/*.css'], ['styles', reload]);
+  gulp.watch([APPDIR + '/elements/**/*.css'], ['elements', reload]);
+  gulp.watch([APPDIR + '/{scripts,elements}/**/*.js'], ['jshint']);
+  gulp.watch([APPDIR + '/images/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
