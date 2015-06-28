@@ -1,0 +1,61 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/neon-animation/neon-animatable-behavior.html">
+
+<dom-module id="animated-page">
+
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+
+  <template>
+    <div id="container"><content></content></div>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'animated-page',
+
+    behaviors: [
+      Polymer.NeonAnimatableBehavior
+    ],
+    properties: {
+      animationConfig: {
+        value: function() {
+          return {
+            // fade-in-animation is run with a 50ms delay from slide-down-animation
+            'entry': [{
+              name: 'transform-animation',
+              node: this.$.container,
+              transformFrom: 'translate(0,200px)',
+              transformTo: 'translate(0,0)',
+              timing: {
+                delay: 300,
+                duration: 800,
+                easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+              }
+            }, {
+              name: 'fade-in-animation',
+              node: this.$.container,
+              timing: {delay: 400}
+            }],
+            'exit': [{
+              name: 'fade-out-animation',
+              node: this,
+              timing: {
+                duration: 50
+              }
+            }]
+          }
+        }
+      }
+    }
+
+  });
+
+</script>
