@@ -45,7 +45,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
-
+  <style>
+  body {
+    background: #fafafa;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    color: #333;
+  }
+  </style>
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
   <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <!-- endbuild -->
@@ -58,8 +64,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body>
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-    <h1>Landing Page Templates</h1>
-    <a href="template-1.html" target="_blank">Template 1</a>
+    <h1>Product Starter Templates</h1>
+    <a href="template-1.html" target="_blank">Template 1</a><br>
+    <a href="template-2.html" target="_blank">Template 2</a>
   </template>
 
   <!-- build:js scripts/app.js -->
