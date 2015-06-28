@@ -48,39 +48,48 @@
 <body unresolved>
 
   <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
 
   <paper-scroll-header-panel condenses keep-condensed-header condensed-header-height="64">
 
     <paper-toolbar id="navbar" class="tall">
       <paper-ripple initial-opacity=".5" recenters opacity-decay-velocity="1"></paper-ripple>
-      <div class="site-title">Google Design</div>
+      <div id="siteTitle">Google Design</div>
       <div class="flex"></div>
-      <paper-tabs class="horizontal center layout" link noink >
+      <paper-tabs selected="" class="horizontal center layout" link noink >
         <paper-tab class="inline flex center-center horizontal layout">
-          <a href="#" class="horizontal center layout">Articles</a>
+          <a data-route="articles" href="/articles" class="horizontal center layout">Articles</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a href="#" class="horizontal center layout">Resources</a>
+          <a data-route="resources" href="/resources" class="horizontal center layout">Resources</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a href="#" class="horizontal center layout">Events</a>
+          <a data-route="events" href="/events" class="horizontal center layout">Events</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a href="#" class="horizontal center layout">Jobs</a>
+          <a data-route="jobs" href="/jobs" class="horizontal center layout">Jobs</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a href="#" class="horizontal center layout">About</a>
+          <a data-route="about" href="/about" class="horizontal center layout">About</a>
         </paper-tab>
       </paper-tabs>
-      <div class="bottom page-title">Google Design</div>
+      <div id="pageTitle" class="bottom">Google Design</div>
     </paper-toolbar>
     <div class="content">
-      <div style="height:1200px;">
-        content fits 100% below the header
-      </div>
+      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" class="flex"
+        entry-animation="slide-from-right-animation" exit-animation="slide-left-animation">
+        <neon-animatable data-route="home" style="background-color:blue;">Home</neon-animatable>
+        <neon-animatable data-route="articles" style="background-color:red;">Articles</neon-animatable>
+        <neon-animatable data-route="resources" style="background-color:green;">Resources</neon-animatable>
+        <neon-animatable data-route="events" style="background-color:grey;">Events</neon-animatable>
+        <neon-animatable data-route="jobs" style="background-color:purple;">Jobs</neon-animatable>
+        <neon-animatable data-route="about" style="background-color:orange;">About</neon-animatable>
+      </neon-animated-pages>
     </div>
+
   </paper-scroll-header-panel>
 
+  </template>
   <!-- build:js scripts/template-2/app.js -->
   <script src="scripts/template-2/app.js"></script>
   <!-- endbuild-->

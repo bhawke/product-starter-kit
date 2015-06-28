@@ -81,7 +81,7 @@
     display:none;
   }
 
-  paper-toolbar.tall .site-title {
+  paper-toolbar.tall #siteTitle {
     margin-left: 52px;
 
     -webkit-transform-origin: left center;
@@ -91,17 +91,17 @@
     isolation: isolate;
   }
 
-  .site-title.condensed {
+  #siteTitle.condensed {
     opacity: 1;
     transition: opacity 200ms ease-in;
   }
 
-  .site-title:not(.condensed) {
+  #siteTitle:not(.condensed) {
     opacity: 0;
     transition: opacity 300ms ease-out;
   }
 
-  paper-toolbar.tall .page-title {
+  paper-toolbar.tall #pageTitle {
     margin-left: 52px;
     margin-bottom:132px;
     font-family: "Roboto Mono", Roboto, sans-serif;
@@ -116,12 +116,12 @@
     isolation: isolate;
   }
 
-  .page-title.condensed {
+  #pageTitle.condensed {
     opacity: 0;
     transition: opacity 400ms ease-out;
   }
 
-  .page-title:not(.condensed) {
+  #pageTitle:not(.condensed) {
     opacity: 1;
     transition: opacity 300ms ease-in;
   }
@@ -156,6 +156,10 @@
 
   paper-tab:not(.iron-selected) > .tab-content.paper-tab {
     opacity: 1;
+  }
+
+  neon-animatable {
+    height:1200px;
   }
 
   /* Breakpoints */
