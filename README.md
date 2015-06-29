@@ -60,7 +60,7 @@ To setup [google analytics](https://www.google.com/analytics) and begin tracking
 2. In the analytics account administration, add a new "Property" from Admin section and add the url to the page deployed to github pages.
 3. After you create the property, copy the javascript code from the ".js Tracking Info" on the GA site.
 4. Paste the javascript at the bottom of the index.html page.  There should already be an existing one in the template so replace it.
-5. Validate it is working by going to the Google Analytics -> Reporting -> Real Time -> Overview .  Make sure you first select the new property from the Home screen.
+5. Validate it is working by going to the Google Analytics -> Reporting -> Real Time -> Overview .  Make sure you first select the new property from the Home screen.  Refresh the page deployed to github pages a few times to see activity.
 
 ## Custom Domain URL
 1. Register domain name through GoDaddy.  Send email to GoDaddy administrator with domain you want to register. [GoDaddy Instructions](http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html)
