@@ -19,7 +19,7 @@
       app.$.siteTitle.classList.remove('condensed');
     }
 
-    if (scale < .9) {
+    if (scale < 0.9) {
       app.$.pageTitle.classList.add('hidden');
     } else {
       app.$.pageTitle.classList.remove('hidden');

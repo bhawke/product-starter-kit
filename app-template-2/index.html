@@ -69,15 +69,21 @@
           <a data-route="jobs" href="/jobs" class="horizontal center layout">Jobs</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a data-route="about" href="/about" class="horizontal center layout">About</a>
+          <a data-route="about" href="/" class="horizontal center layout">About</a>
         </paper-tab>
       </paper-tabs>
+
       <div id="pageTitle" class="bottom">Google Design</div>
     </paper-toolbar>
-    <div class="content">
-      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}">
-        <animated-page data-route="home">
-          <div style="background-color:blue;height:1200px;">Home</div>
+    <div class="content" style="height:100%;">
+      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" style="height:100%;">
+        <animated-page data-route="home" style="height:100%;">
+          <paper-card heading="A paper card">
+                  <iron-image src="images/articles-graphic3.svg" style="width:30px;height:30px;"></iron-image>
+          </paper-card>
+          <paper-card heading="Some more info">
+                  <iron-image src="images/articles-graphic2.svg" style="width:30px;height:30px;"></iron-image>
+          </paper-card>
         </animated-page>
         <animated-page data-route="articles">
           <div style="background-color:red;height:1200px;">Articles</div>
@@ -103,6 +109,20 @@
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
+
+  <!-- google analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-47608008-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- end google analytics -->
+
 </body>
 
 </html>

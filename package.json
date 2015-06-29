@@ -1,7 +1,7 @@
 {
   "private": true,
   "psk": {
-    "appDir": "app"
+    "appDir": "app-template-1"
   },
   "devDependencies": {
     "browser-sync": "^2.7.7",

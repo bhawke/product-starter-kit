@@ -1,0 +1,91 @@
+<link rel="import" href="/bower_components/paper-material/paper-material.html">
+<link rel="import" href="/bower_components/paper-styles/paper-styles.html">
+
+<link rel="import" href="/bower_components/iron-image/iron-image.html">
+
+<dom-module id="paper-card">
+  <style>
+    :host {
+      display: block;
+      min-width: 200px;
+    }
+
+    paper-material {
+
+      cursor: pointer;
+      min-height:300px;
+
+    }
+
+  </style>
+
+  <template>
+    <paper-material animated elevation="{{elevation}}">
+      <div class="card-header layout horizontal center">
+        <content select="iron-image"></content>
+        <h3>{{heading}}</h3>
+      </div>
+      <content></content>
+    </paper-material>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    // name of the element
+    is: 'paper-card',
+    properties: {
+      heading: {
+        type: String,
+        reflectToAttribute: true,
+        value: ''
+      },
+      elevation: {
+        type: Number,
+        reflectToAttribute: true,
+        value: 1
+      },
+      selected: {
+        type: Boolean,
+        value: false
+      }
+    },
+    // gesture listeners: down, up, tap, track
+    listeners: {
+      tap: 'tapAction'
+    },
+    // lifecycle functions: created, attached, detached, ready, attributeChanged
+    // we attach additional listeners here which are not available as Polymer listeners
+    attached: function() {
+      this.addEventListener('mouseenter', function () {
+        this.selectAction();
+      });
+      this.addEventListener('mouseleave', function () {
+        this.unselectAction();
+      });
+    },
+    // custom functions: anything you want - this is the prototype of your object
+    tapAction: function() {
+      if (!this.selected) {
+        this.selectAction();
+      }
+      else {
+        this.unselectAction();
+      }
+    },
+    selectAction: function() {
+      if (!this.selected)
+      {
+        this.selected = true;
+        this.elevation+=2;
+      }
+    },
+    unselectAction: function() {
+      if (this.selected)
+      {
+        this.selected = false;
+        this.elevation-=2;
+      }
+    }
+  });
+</script>
