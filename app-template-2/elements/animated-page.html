@@ -10,7 +10,7 @@
   </style>
 
   <template>
-    <div id="container"><content></content></div>
+    <content></content>
   </template>
 
 </dom-module>
@@ -31,7 +31,7 @@
             // fade-in-animation is run with a 50ms delay from slide-down-animation
             'entry': [{
               name: 'transform-animation',
-              node: this.$.container,
+              node: this,
               transformFrom: 'translate(0,200px)',
               transformTo: 'translate(0,0)',
               timing: {
@@ -41,7 +41,7 @@
               }
             }, {
               name: 'fade-in-animation',
-              node: this.$.container,
+              node: this,
               timing: {delay: 400}
             }],
             'exit': [{

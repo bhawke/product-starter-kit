@@ -36,6 +36,8 @@
 
  }
 
+
+
   paper-ripple {
     position: absolute;
     width: 100%;
@@ -55,6 +57,8 @@
     background-color: var(--paper-grey-200, #eee);
   }
 
+
+
   paper-scroll-header-panel {
     --paper-scroll-header-panel-full-header: {
       background-color: var(--google-blue-500, #4285f4);
@@ -70,6 +74,7 @@
       -webkit-font-smoothing: antialiased;
       font-size: 20px;
       letter-spacing: 0.25px;
+
     };
   }
 
@@ -158,9 +163,18 @@
     opacity: 1;
   }
 
-  neon-animatable {
-    height:1200px;
+  /* remove this, just for development */
+
+
+  .grid-block.-aspect-1x1 {
+      height: 0;
+      padding-bottom: 100%
   }
+
+  paper-card {
+       background-color: white;
+       width:50%;
+   }
 
   /* Breakpoints */
 

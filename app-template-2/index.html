@@ -69,15 +69,21 @@
           <a data-route="jobs" href="/jobs" class="horizontal center layout">Jobs</a>
         </paper-tab>
         <paper-tab class="inline flex center-center horizontal layout">
-          <a data-route="about" href="/about" class="horizontal center layout">About</a>
+          <a data-route="about" href="/" class="horizontal center layout">About</a>
         </paper-tab>
       </paper-tabs>
+
       <div id="pageTitle" class="bottom">Google Design</div>
     </paper-toolbar>
-    <div class="content">
-      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}">
-        <animated-page data-route="home">
-          <div style="background-color:blue;height:1200px;">Home</div>
+    <div class="content" style="height:100%;">
+      <neon-animated-pages attr-for-selected="data-route" selected="{{route}}" style="height:100%;">
+        <animated-page data-route="home" style="height:100%;">
+          <paper-card heading="A paper card">
+                  <iron-image src="images/articles-graphic3.svg" style="width:30px;height:30px;"></iron-image>
+          </paper-card>
+          <paper-card heading="Some more info">
+                  <iron-image src="images/articles-graphic2.svg" style="width:30px;height:30px;"></iron-image>
+          </paper-card>
         </animated-page>
         <animated-page data-route="articles">
           <div style="background-color:red;height:1200px;">Articles</div>
