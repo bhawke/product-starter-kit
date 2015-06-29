@@ -26,8 +26,6 @@ var ghPages = require('gulp-gh-pages');
 
 // rbeers mod, so we can change the app dir for templates
 var argv = require('yargs')
-            .usage('Usage: $0 <command> [options]')
-            .command('serve', 'serve up the application')
             .alias('t', 'template')
             .describe('t', 'template to use.  Example: passing -t 2 would serve app from app-template-2 directory')
             .example('$0 serve --template 2', 'serve the app from app-template-2 directory')
@@ -35,11 +33,13 @@ var argv = require('yargs')
             .alias('h', 'help')
             .argv;
 var PSK = require('./package.json').psk;
-var APPDIR = 'app';
+var APPDIR;
 if (argv.template) {
   APPDIR = 'app-template-' + argv.template;
 } else if (PSK.appDir) {
   APPDIR = PSK.appDir;
+} else {
+  APPDIR = 'app';
 }
 
 var AUTOPREFIXER_BROWSERS = [
@@ -91,7 +91,7 @@ gulp.task('jshint', function () {
 
 // Optimize Images
 gulp.task('images', function () {
-  return gulp.src(APPDIR + '/images/**/*')
+  return gulp.src([APPDIR + '/images/**/*'])
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
@@ -195,8 +195,13 @@ gulp.task('precache', function (callback) {
   });
 });
 
+// Clears files cached by gulp-cache (e.g. anything using $.cache).
+gulp.task('clear', function (done) {
+  return $.cache.clearAll(done);
+});
+
 // Clean Output Directory
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', ['clear'], del.bind(null, ['.tmp', 'dist', '.publish']));
 
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles', 'elements', 'images'], function () {
