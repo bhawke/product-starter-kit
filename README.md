@@ -55,7 +55,7 @@ Deploy the site to github pages.  This assumes you have created a new repository
 Modify the theme variables in `app/elements/app-theme.html` .  Use [Material Palette](http://www.materialpalette.com/) for different theme combinations.
 
 ## Google Analytics
-To setup google analytics and begin tracking metrics:
+To setup [google analytics](https://www.google.com/analytics) and begin tracking metrics:
 1. Request access to the company google analytics account
 2. In the analytics account administration, add a new "Property" from Admin section and add the url to the page deployed to github pages.
 3. After you create the property, copy the javascript code from the ".js Tracking Info" on the GA site.
